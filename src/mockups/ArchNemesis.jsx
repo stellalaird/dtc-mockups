@@ -10,7 +10,7 @@ const QUESTIONS = [
 ]
 
 const NEMESIS = {
-  name: 'Priya Krishnamurthy',
+  name: 'Sarah Smith',
   year: 'Senior · EECS',
   dorm: 'Plex South',
   score: 4,
