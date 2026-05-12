@@ -216,7 +216,7 @@ export default function ArchNemesis() {
     <div className="min-h-full px-5 pt-4 pb-8" style={{ background: '#0d0d0d', fontFamily: 'Space Mono, monospace' }}>
       <div className="text-center mb-5">
         <p className="text-red-500 text-xs uppercase tracking-widest font-bold mb-1 animate-fade-in">⚔️ Nemesis Revealed</p>
-        <h2 className="text-white text-2xl font-bold animate-fade-in delay-100">Your worst enemy</h2>
+        <h2 className="text-white text-2xl font-bold animate-fade-in delay-100">Your worst match</h2>
       </div>
       <div className="rounded-2xl p-5 mb-4 animate-fade-in delay-200" style={{ background: '#1a0000', border: '2px solid #ff3333', boxShadow: '0 0 30px rgba(255,51,51,0.2)' }}>
         <div className="flex items-center gap-4 mb-4">
