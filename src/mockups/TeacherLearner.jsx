@@ -26,8 +26,8 @@ export default function TeacherLearner() {
     <div className="min-h-full flex flex-col px-6 pt-4 pb-8" style={{ background: BG, fontFamily: 'Quicksand, sans-serif' }}>
       <div className="mb-8 text-center">
         <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center text-3xl" style={{ background: '#fff3dc', border: '2px solid #f5d9a0' }}>🤝</div>
-        <h2 className="text-2xl font-bold mb-2" style={{ color: WARM, fontFamily: 'Quicksand, sans-serif' }}>Skill Share NU</h2>
-        <p className="text-sm" style={{ color: '#a07040' }}>Teach what you love. Learn what you don't.</p>
+        <h2 className="text-2xl font-bold mb-2" style={{ color: WARM, fontFamily: 'Quicksand, sans-serif' }}>Skill Sharing @ NU</h2>
+        <p className="text-sm" style={{ color: '#a07040' }}>Teach what you love. Learn what you want.</p>
       </div>
       <div className="space-y-3 flex-1">
         {[['Northwestern Email', 'you@u.northwestern.edu'], ['Full Name', 'Your name'], ['Instagram (optional)', '@yourhandle']].map(([l, p]) => (
@@ -50,9 +50,9 @@ export default function TeacherLearner() {
       <p className="text-sm mb-8" style={{ color: '#a07040' }}>You can always switch later.</p>
       <div className="space-y-4 flex-1">
         {[
-          { r: 'teach', emoji: '🎓', title: 'I want to teach', desc: 'Share a skill you\'re passionate about with fellow wildcats' },
+          { r: 'teach', emoji: '🎓', title: 'I want to teach', desc: 'Share a skill you\'re passionate about (not implemented yet 😔)' },
           { r: 'learn', emoji: '📖', title: 'I want to learn', desc: 'Find someone who can teach you something new' },
-          { r: 'both', emoji: '🔄', title: 'Both!', desc: 'Teach one thing, learn another — pay it forward' },
+          { r: 'both', emoji: '🔄', title: 'Both!', desc: 'Teach one thing, learn another' },
         ].map(({ r, emoji, title, desc }) => (
           <button key={r} onClick={() => { setRole(r); setStage('browse') }}
             className="w-full text-left p-5 rounded-2xl border-2 transition-all active:scale-95"

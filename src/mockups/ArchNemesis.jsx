@@ -112,7 +112,7 @@ export default function ArchNemesis() {
         <div>
           <label className="text-gray-500 text-xs uppercase tracking-widest block mb-2">Your vibe (pick one)</label>
           <div className="grid grid-cols-2 gap-2">
-            {['Civilized chat 🦋', 'DUEL ⚔️'].map(v => {
+            {['Civilized chat 🦋', 'DUEL TO THE DEATH ⚔️'].map(v => {
               const isSelected = selectedVibe === v
 
               return (<button key={v} type="button" onClick={() => setSelectedVibe(v)}
@@ -204,7 +204,7 @@ export default function ArchNemesis() {
         <Skull size={32} color="#ff3333" />
       </div>
       <p className="text-white text-sm font-bold mb-2">Analyzing your soul...</p>
-      <p className="text-gray-600 text-xs mb-6">Finding your perfect opposite</p>
+      <p className="text-gray-600 text-xs mb-6">Finding your perfect opp</p>
       <div className="w-full bg-[#1a1a1a] rounded-full h-2 overflow-hidden">
         <div className="h-full rounded-full transition-all duration-300" style={{ width: `${loadPct}%`, background: '#ff3333' }} />
       </div>
@@ -240,7 +240,7 @@ export default function ArchNemesis() {
       </div>
       
       <div className="grid-cols-2 gap-2">
-        <button className="py-3 rounded-xl text-xs font-bold text-white active:scale-95" style={{ background: '#ff3333' }}>Challenge Nemesis</button>
+        <button className="py-3 rounded-xl text-xs font-bold text-white active:scale-95" style={{ background: '#ff3333' }}>  Challenge Nemesis  </button>
       </div>
     </div>
   )
