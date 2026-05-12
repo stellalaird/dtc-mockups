@@ -189,7 +189,7 @@ export default function StudyBuddy() {
           </div>
         </div>
       </div>
-      <button className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95" style={{ background: ACCENT }}>
+      <button onClick={() => setStage('browse')} className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95" style={{ background: ACCENT }}>
         Post Request →
       </button>
     </div>
