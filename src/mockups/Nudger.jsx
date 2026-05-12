@@ -4,10 +4,10 @@ import { ArrowLeft, Plus, Bell, Zap } from 'lucide-react'
 const FRIENDS = [
   { name: 'Emma Liu', status: 'free', avatar: '👩🏻‍🦱', activity: 'At Norris', dist: '0.1mi', lastSeen: 'now' },
   { name: 'Tyler Banks', status: 'free', avatar: '🧑🏾', activity: 'Just finished class', dist: '0.3mi', lastSeen: '2m' },
-  { name: 'Yuna Kim', status: 'busy', avatar: '👩🏻', activity: 'Library — studying', dist: '0.4mi', lastSeen: '15m' },
-  { name: 'Marcus Bell', status: 'free', avatar: '🧑🏻', activity: 'At Fran\'s', dist: '0.2mi', lastSeen: '1m' },
+  { name: 'Yuna Kim', status: 'busy', avatar: '👩🏻', activity: 'Library, studying', dist: '0.4mi', lastSeen: '15m' },
+  { name: 'Marcus Bell', status: 'free', avatar: '🧑🏻', activity: 'At Frans', dist: '0.2mi', lastSeen: '1m' },
   { name: 'Priya K.', status: 'busy', avatar: '👩🏽', activity: 'In meeting', dist: '0.5mi', lastSeen: '30m' },
-  { name: 'Jake Torres', status: 'free', avatar: '🧑🏽', activity: 'Just woke up lol', dist: '0.6mi', lastSeen: '5m' },
+  { name: 'Jake Torres', status: 'free', avatar: '🧑🏽', activity: 'Just woke up', dist: '0.6mi', lastSeen: '5m' },
 ]
 
 const ACTIVITIES = ['🧋 Boba run', '🍕 Dinner', '🌊 Lakefill walk', '🏋️ Gym sesh', '☕ Coffee', '🎮 Game?', '📖 Study break', '🌙 Late night snack']
@@ -190,7 +190,7 @@ export default function Nudger() {
                 color: activityText.trim() ? 'white' : '#666',
               }}
             >
-              Update Nudge ⚡
+              Add Suggestion ⚡
             </button>
           </div>
           {actSent && (
