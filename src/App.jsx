@@ -13,7 +13,7 @@ import Nudger from './mockups/Nudger.jsx'
 import TraitCollector from './mockups/TraitCollector.jsx'
 
 const APPS = [
-  { id: 'feedback', label: 'Home', component: FeedbackPage },
+  { id: 'feedback', label: 'Feedback Home', component: FeedbackPage },
   { id: 'nemesis', label: '1. Arch-Nemesis Finder ⚔️', component: ArchNemesis },
   { id: 'teacher', label: '2. Teacher & Learner Match 🎓', component: TeacherLearner },
   { id: 'artwork', label: '3. Half Artwork 🎨', component: HalfArtwork },
