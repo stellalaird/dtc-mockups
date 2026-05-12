@@ -25,8 +25,6 @@ const RIVALS = [
   { name: 'James Park', score: 16, avatar: '🧑🏻‍💻' },
 ]
 
-const [selectedVibe, setSelectedVibe] = useState('')
-
 const stages = ['signup', 'profile', 'home', 'quiz', 'loading', 'reveal']
 
 export default function ArchNemesis() {
@@ -36,6 +34,7 @@ export default function ArchNemesis() {
   const [answers, setAnswers] = useState({})
   const [qIdx, setQIdx] = useState(0)
   const [loadPct, setLoadPct] = useState(0)
+  const [selectedVibe, setSelectedVibe] = useState('')
 
   const next = (s) => setStage(s)
 
