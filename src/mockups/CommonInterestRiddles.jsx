@@ -12,7 +12,8 @@ const RIDDLES = [
       'My name is a misspellage of a common brown sludge (type Mudd library)',
     ],
     answer: 'Mudd library',
-    major: 'Film Studies · Freshman',
+    name: 'Rezas Kid',
+    major: 'Film Studies · Senior',
     interests: ['Movies', 'Dogs', 'Debate Club'],
     avatar: '🧑🏻‍🎓',
     unlocked: false,
@@ -27,6 +28,7 @@ const RIDDLES = [
       'I sit across from Joy Yee Noodle (type Todoroki)',
     ],
     answer: 'Todoroki',
+    name: 'Willie the Wildcat',
     major: 'Sociology · Junior',
     interests: ['Rock Climbing', 'Travel', 'Lo-fi Music'],
     avatar: '👩🏽‍🎓',
@@ -42,7 +44,8 @@ const RIDDLES = [
       'I\'m somewhere in Norris (type Shake Smart)',
     ],
     answer: 'Shake Smart',
-    major: 'Linguistics · Senior',
+    name: 'Jonas Jin',
+    major: 'Linguistics · Freshman',
     interests: ['Languages', 'Norris', 'Sunrises'],
     avatar: '👩🏻‍💼',
     unlocked: false,
@@ -84,7 +87,7 @@ export default function CommonInterestRiddles() {
         <div className="h-6" />
         <div className="text-5xl mb-4">🔍</div>
         <h2 className="text-2xl font-bold mb-2" style={{ color: DARK }}>Riddle NU</h2>
-        <p className="text-sm" style={{ color: '#888' }}>Solve clues only Northwestern students would know. Unlock profiles. Make friends</p>
+        <p className="text-sm" style={{ color: '#888' }}>Solve clues only Northwestern students would know. Unlock profiles. Make friends.</p>
       </div>
       <div className="space-y-3 flex-1">
         {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name']].map(([l, p]) => (
@@ -216,7 +219,7 @@ export default function CommonInterestRiddles() {
         <div className="animate-fade-in">
           <div className="text-center mb-5">
             <div className="text-5xl mb-2 animate-bounce-in">{selected.avatar}</div>
-            <h3 className="text-2xl font-bold" style={{ color: DARK }}>{selected.answer}</h3>
+            <h3 className="text-2xl font-bold" style={{ color: DARK }}>{selected.name}</h3>
             <p className="text-sm" style={{ color: '#888' }}>{selected.major}</p>
             <div className="flex items-center justify-center gap-1 mt-1">
               <Unlock size={14} color={ACCENT} />

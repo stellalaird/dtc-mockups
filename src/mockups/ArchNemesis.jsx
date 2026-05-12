@@ -239,9 +239,21 @@ export default function ArchNemesis() {
         </div>
       </div>
       
-      <div className="grid-cols-2 gap-2">
-        <button className="py-3 rounded-xl text-xs font-bold text-white active:scale-95" style={{ background: '#ff3333' }}>  Challenge Nemesis  </button>
+      <div className="flex justify-center">
+        <button
+          className="group flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 active:scale-95 hover:scale-[1.02] shadow-lg"
+          style={{
+            background: 'linear-gradient(135deg, #ff3333, #b30000)',
+            boxShadow: '0 8px 25px rgba(255,51,51,0.35)',
+          }}
+        >
+          ⚔️ Challenge Nemesis
+          <span className="transition-transform duration-200 group-hover:translate-x-1">
+            →
+          </span>
+        </button>
       </div>
+      
     </div>
   )
 }
