@@ -25,18 +25,6 @@ const START_COLLECTIONS = [
   },
 ]
 
-const IDEAS = [
-  'Someone from every state',
-  'Someone from every country you can find',
-  'Someone who speaks 3+ languages',
-  'Someone with a niche hobby',
-  'Someone who has lived abroad',
-  'Someone who plays an unusual instrument',
-  'Someone with the same birthday month',
-  'Someone who has met a celebrity',
-  'Someone who has a twin',
-  'Someone who grew up on a farm',
-]
 
 export default function TraitCollector() {
   const [stage, setStage] = useState('signup')
@@ -154,7 +142,7 @@ export default function TraitCollector() {
       </div>
 
       <div className="flex px-2 mb-2">
-        {['track', 'collections', 'ideas'].map(t => (
+        {['track', 'collections'].map(t => (
           <button
             key={t}
             onClick={() => setTab(t)}
@@ -299,34 +287,7 @@ export default function TraitCollector() {
         </div>
       )}
 
-      {tab === 'ideas' && (
-        <div className="px-5 py-3">
-          <p className="text-xs uppercase tracking-widest mb-3" style={{ color: '#333' }}>
-            Things to Collect
-          </p>
-
-          <div className="space-y-2">
-            {IDEAS.map((idea, i) => (
-              <div
-                key={idea}
-                className="flex items-center gap-3 p-3 rounded-2xl"
-                style={{ background: '#111', border: '1px solid #1a1a1a' }}
-              >
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center"
-                  style={{ background: 'rgba(255,215,0,0.1)' }}
-                >
-                  <Sparkles size={16} color={GOLD} />
-                </div>
-                <p className="text-white text-sm flex-1">{idea}</p>
-                <span className="text-xs" style={{ color: '#444' }}>
-                  {i + 1}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      
     </div>
   )
 }
