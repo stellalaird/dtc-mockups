@@ -11,7 +11,7 @@ const QUESTIONS = [
 
 const NEMESIS = {
   name: 'Sarah Satan Smith',
-  year: 'Sophomore · Performative Studies',
+  year: 'Sophomore',
   dorm: 'East Fairchild',
   score: '0.01%',
   badges: ['Morning Person', 'Matcha Connoisseur', 'Sarge Regular'],
@@ -62,7 +62,7 @@ export default function ArchNemesis() {
           <span className="text-red-500 text-xs tracking-widest uppercase font-bold">ARCH-NEMESIS FINDER</span>
         </div>
         <h2 className="text-white text-2xl font-bold leading-tight">Find your<br/><span style={{ color: '#ff3333' }}>opp.</span></h2>
-        <p className="text-gray-500 text-xs mt-2">The person you will hate to eternity.</p>
+        <p className="text-gray-500 text-xs mt-2">The person you will hate till the day you die.</p>
       </div>
       <div className="space-y-3 flex-1">
         <div>
@@ -112,7 +112,7 @@ export default function ArchNemesis() {
         <div>
           <label className="text-gray-500 text-xs uppercase tracking-widest block mb-2">Your vibe (pick one)</label>
           <div className="grid grid-cols-2 gap-2">
-            {['Civilized chat 🦋', 'DUEL TO THE DEATH ⚔️'].map(v => {
+            {['Civilized chat 🦋', 'DUEL ⚔️'].map(v => {
               const isSelected = selectedVibe === v
 
               return (<button key={v} type="button" onClick={() => setSelectedVibe(v)}
@@ -228,7 +228,7 @@ export default function ArchNemesis() {
           </div>
           <div className="ml-auto text-center">
             <p className="text-red-500 text-3xl font-bold">{NEMESIS.score}</p>
-            <p className="text-gray-600 text-xs">compat.</p>
+            <p className="text-gray-600 text-xs">compatibility</p>
           </div>
         </div>
         <p className="text-gray-400 text-xs leading-relaxed mb-4">{NEMESIS.bio}</p>
@@ -239,7 +239,7 @@ export default function ArchNemesis() {
         </div>
       </div>
       
-      <div className="gap-2">
+      <div className="grid-cols-2 gap-2">
         <button className="py-3 rounded-xl text-xs font-bold text-white active:scale-95" style={{ background: '#ff3333' }}>Challenge Nemesis</button>
       </div>
     </div>
