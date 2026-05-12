@@ -90,8 +90,8 @@ export default function TraitCollector() {
         style={{ background: 'rgba(255,215,0,0.05)', border: '1px solid rgba(255,215,0,0.15)' }}
       >
         <p style={{ color: GOLD, fontSize: '12px', lineHeight: '1.6' }}>
-          Keep track of fun traits you discover in the people you meet — states,
-          countries, hidden talents, niche hobbies, and random life stories.
+          Collect people with unique traits. The rarer the person, the more points you earn.
+          Top the leaderboard. 🏆
         </p>
       </div>
 
@@ -121,7 +121,7 @@ export default function TraitCollector() {
           fontSize: '16px',
         }}
       >
-        START TRACKING →
+        START COLLECTING →
       </button>
     </div>
   )
@@ -164,7 +164,7 @@ export default function TraitCollector() {
               color: tab === t ? GOLD : '#444',
             }}
           >
-            {t === 'track' ? '➕ Track' : t === 'collections' ? '🗂️ Lists' : '💡 Ideas'}
+            {t === 'track' ? '➕ Track' : t === 'collections' ? '🗂️ Collections' : '💡 Ideas'}
           </button>
         ))}
       </div>
