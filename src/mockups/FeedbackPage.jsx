@@ -37,7 +37,7 @@ export default function FeedbackPage() {
         </h1>
 
         <p className="text-purple-200/70 text-sm leading-relaxed mb-5">
-          You're giving feedback on 9 mockups designed to facilitate social interaction among Northwestern undergrads.
+          Welcome! We built 9 mockups designed to facilitate social interaction among NU students, and are now deciding which to pursue. We'd appreciate any feedback you have.
         </p>
 
         <div className="rounded-2xl p-4 mb-2" style={{ background: 'rgba(78,42,132,0.25)', border: '1px solid rgba(178,136,255,0.2)' }}>
