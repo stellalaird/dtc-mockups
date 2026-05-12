@@ -4,7 +4,7 @@ import { ArrowLeft, MapPin, Clock, BookOpen, Users, Zap, Check } from 'lucide-re
 const BUILDINGS = [
   { name: 'Main Library', emoji: '📚', active: 34, floors: 4 },
   { name: 'Deering Library', emoji: '🏛️', active: 12, floors: 3 },
-  { name: 'Tech (Ford)', emoji: '💻', active: 28, floors: 5 },
+  { name: 'Tech', emoji: '💻', active: 28, floors: 5 },
   { name: 'Kresge Hall', emoji: '🎭', active: 8, floors: 2 },
   { name: 'Norris', emoji: '☕', active: 22, floors: 2 },
   { name: 'Mudd Library', emoji: '🔬', active: 19, floors: 3 },
@@ -24,6 +24,7 @@ export default function StudyBuddy() {
   const [building, setBuilding] = useState(null)
   const [course, setCourse] = useState(null)
   const [accepted, setAccepted] = useState(null)
+  const [selectedDuration, setSelectedDuration] = useState('')
 
   const BG = '#faf6f0'
   const ACCENT = '#c2742a'
@@ -33,7 +34,7 @@ export default function StudyBuddy() {
     <div className="min-h-full flex flex-col px-6 pt-4 pb-8" style={{ background: BG, fontFamily: 'DM Sans, sans-serif' }}>
       <div className="mb-8">
         <div className="text-5xl mb-4">📚</div>
-        <h2 className="text-2xl font-bold mb-1" style={{ color: DARK }}>StudyBuddy NU</h2>
+        <h2 className="text-2xl font-bold mb-1" style={{ color: DARK }}>StudyBuddy Match</h2>
         <p className="text-sm" style={{ color: '#a07850' }}>Find someone studying the same thing, right now.</p>
       </div>
       <div className="space-y-3 flex-1">
@@ -45,7 +46,7 @@ export default function StudyBuddy() {
           </div>
         ))}
         <div className="rounded-xl p-3" style={{ background: '#fff3e8', border: '1px solid #f5d5b0' }}>
-          <p className="text-xs" style={{ color: ACCENT }}>💡 StudyBuddy shows your location to nearby students only while active. Auto-hidden when you leave.</p>
+          <p className="text-xs" style={{ color: ACCENT }}>💡 StudyBuddy checks your location only while active. Auto-hidden when you leave.</p>
         </div>
       </div>
       <button onClick={() => setStage('building')} className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95" style={{ background: ACCENT }}>
@@ -140,7 +141,7 @@ export default function StudyBuddy() {
             <p className="text-xs mb-3" style={{ color: '#888' }}>"{p.note}"</p>
             <button onClick={() => { setAccepted(p); setStage('matched') }}
               className="w-full py-2.5 rounded-xl text-sm font-bold text-white active:scale-95" style={{ background: ACCENT }}>
-              Accept Invite →
+              Select →
             </button>
           </div>
         ))}
@@ -153,7 +154,7 @@ export default function StudyBuddy() {
       <button onClick={() => setStage('browse')} className="flex items-center gap-1 text-sm mb-5" style={{ color: '#a07850' }}><ArrowLeft size={14}/></button>
       <h2 className="text-xl font-bold mb-5" style={{ color: DARK }}>Post a Study Request</h2>
       <div className="space-y-4 flex-1">
-        {[['Course', course || ''], ['Note', 'What do you need help with?']].map(([l, p]) => (
+        {[['Course', course || ''], ['Note', 'What are you working on?'], ['Room', 'Where can they find you?']].map(([l, p]) => (
           <div key={l}>
             <label className="text-xs font-bold uppercase tracking-widest block mb-1" style={{ color: '#a07850' }}>{l}</label>
             <input className="w-full px-4 py-3 rounded-xl text-sm border outline-none" defaultValue={p}
@@ -163,13 +164,32 @@ export default function StudyBuddy() {
         <div>
           <label className="text-xs font-bold uppercase tracking-widest block mb-2" style={{ color: '#a07850' }}>Duration</label>
           <div className="flex gap-2">
-            {['30 min', '1 hour', '2+ hours', 'Until done'].map(d => (
-              <button key={d} className="flex-1 py-2 rounded-lg text-xs font-bold border" style={{ background: 'white', borderColor: '#e8d8c8', color: DARK }}>{d}</button>
-            ))}
+            {['30 min', '1 hour', '2 hours', 'Until done'].map(d => {
+              const isSelected = selectedDuration === d
+
+              return (
+                <button
+                  key={d}
+                  type="button"
+                  onClick={() => setSelectedDuration(d)}
+                  className="flex-1 py-2 rounded-lg text-xs font-bold border transition-all active:scale-95"
+                  style={{
+                    background: isSelected ? ACCENT : 'white',
+                    borderColor: isSelected ? ACCENT : '#e8d8c8',
+                    color: isSelected ? 'white' : DARK,
+                    boxShadow: isSelected
+                      ? '0 4px 12px rgba(0,0,0,0.12)'
+                      : 'none',
+                  }}
+                >
+                  {d}
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>
-      <button onClick={() => setStage('browse')} className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95" style={{ background: ACCENT }}>
+      <button className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95" style={{ background: ACCENT }}>
         Post Request →
       </button>
     </div>
