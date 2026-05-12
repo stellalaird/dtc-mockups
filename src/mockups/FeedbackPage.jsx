@@ -19,6 +19,9 @@ export default function FeedbackPage() {
       background: 'linear-gradient(160deg, #1a0533 0%, #0f0a1e 40%, #0d1a2e 100%)',
       fontFamily: 'DM Sans, sans-serif',
     }}>
+
+      <div className="h-6" />
+
       {/* Hero */}
       <div className="px-6 pt-6 pb-4">
         <div className="flex items-center gap-2 mb-4">
@@ -34,7 +37,7 @@ export default function FeedbackPage() {
         </h1>
 
         <p className="text-purple-200/70 text-sm leading-relaxed mb-5">
-          You're giving feedback on 9 concepts designed to facilitate social interaction among Northwestern undergrads.
+          You're giving feedback on 9 mockups designed to facilitate social interaction among Northwestern undergrads.
         </p>
 
         <div className="rounded-2xl p-4 mb-2" style={{ background: 'rgba(78,42,132,0.25)', border: '1px solid rgba(178,136,255,0.2)' }}>
@@ -72,10 +75,14 @@ export default function FeedbackPage() {
           </a>
         </div>
 
-        <p className="text-center text-purple-900/60 text-xs mt-4">
+        <div className="h-10" />
+
+        <p className="text-center text-white text-xs mt-4">
           Built by Team Quatro Quatro · Northwestern University
         </p>
       </div>
+
     </div>
+    
   )
 }

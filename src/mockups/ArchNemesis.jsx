@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import { Flame, Zap, Shield, ChevronRight, ArrowLeft, Skull } from 'lucide-react'
 
 const QUESTIONS = [
-  { q: 'Your ideal Saturday starts at...', opts: ['6am run', '10am brunch', '1pm wake-up', '4pm, why rush?'] },
-  { q: 'Your dorm energy is...', opts: ['Silent library', 'Study parties', 'Netflix chaos', 'I don\'t dorm'] },
-  { q: 'Dining hall of choice?', opts: ['Fran\'s (healthy)', 'Sargent (cozy)', 'Elder (social)', 'I cook'] },
-  { q: 'Group project role?', opts: ['Leader always', 'Idea person', 'Executor', 'Last-minute hero'] },
-  { q: 'Social battery style?', opts: ['Extrovert max', 'Ambiverted', 'Introvert, recharging', 'Hermit mode'] },
+  { q: 'Your ideal Saturday starts with...', opts: ['5am ice bath', '10am boxing match w/ roommate', '1pm wake-up', '4pm study sesh on the lakefill'] },
+  { q: 'Favorite color', opts: ['Purple', 'Blue', 'Red', 'Green'] },
+  { q: 'Best dining hall?', opts: ['---> Plex <--- (right answer)', 'Elder', 'Allison', 'Sarge'] },
+  { q: 'Group role', opts: ['Group leader', 'Type A', 'Follower', 'Switching up on my day ones'] },
+  { q: 'Style of revenge', opts: ['Sneaky', 'Swordfight', 'WWIII', 'I forgive cuz Im kind'] },
 ]
 
 const NEMESIS = {
-  name: 'Sarah Smith',
-  year: 'Senior · EECS',
-  dorm: 'Plex South',
-  score: 4,
-  badges: ['Morning Person', 'Leader Type', 'Sargent Regular'],
-  bio: 'Pre-med + CS double major. Up at 5:30am. Has never skipped a class.',
+  name: 'Sarah Satan Smith',
+  year: 'Sophomore · Performative Studies',
+  dorm: 'East Fairchild',
+  score: '0.01%',
+  badges: ['Morning Person', 'Matcha Connoisseur', 'Sarge Regular'],
+  bio: 'Performative triple major. Up at 5:30am. Has never skipped a class.',
   avatar: '👩🏽‍💻',
 }
 
@@ -24,6 +24,8 @@ const RIVALS = [
   { name: 'Sofia Reyes', score: 14, avatar: '👩🏽‍🎨' },
   { name: 'James Park', score: 16, avatar: '🧑🏻‍💻' },
 ]
+
+const [selectedVibe, setSelectedVibe] = useState('')
 
 const stages = ['signup', 'profile', 'home', 'quiz', 'loading', 'reveal']
 
@@ -58,10 +60,10 @@ export default function ArchNemesis() {
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-1">
           <Skull size={20} color="#ff3333" />
-          <span className="text-red-500 text-xs tracking-widest uppercase font-bold">ARCH-NEMESIS</span>
+          <span className="text-red-500 text-xs tracking-widest uppercase font-bold">ARCH-NEMESIS FINDER</span>
         </div>
-        <h2 className="text-white text-2xl font-bold leading-tight">Find your<br/><span style={{ color: '#ff3333' }}>opposite.</span></h2>
-        <p className="text-gray-500 text-xs mt-2">The person who is everything you're not.</p>
+        <h2 className="text-white text-2xl font-bold leading-tight">Find your<br/><span style={{ color: '#ff3333' }}>opp.</span></h2>
+        <p className="text-gray-500 text-xs mt-2">The person you will hate to eternity.</p>
       </div>
       <div className="space-y-3 flex-1">
         <div>
@@ -83,7 +85,7 @@ export default function ArchNemesis() {
           />
         </div>
         <div className="rounded-xl p-4" style={{ background: '#1a0000', border: '1px solid #330000' }}>
-          <p className="text-red-400 text-xs leading-relaxed">⚠️ Warning: Your arch-nemesis will be notified. Rivalry is public. No backing out.</p>
+          <p className="text-red-400 text-xs leading-relaxed">⚠️ Warning: Your arch-nemesis will be notified. Rivalry is imminent. No backing out.</p>
         </div>
       </div>
       <button
@@ -111,9 +113,22 @@ export default function ArchNemesis() {
         <div>
           <label className="text-gray-500 text-xs uppercase tracking-widest block mb-2">Your vibe (pick one)</label>
           <div className="grid grid-cols-2 gap-2">
-            {['Night owl 🦉', 'Morning chaos ☀️', 'Grind mode 💻', 'Social butterfly 🦋'].map(v => (
-              <button key={v} className="py-2.5 rounded-lg text-xs text-gray-400 border border-[#333] hover:border-red-500 hover:text-white transition-all active:scale-95" style={{ background: '#1a1a1a' }}>{v}</button>
-            ))}
+            {['Civilized chat 🦋', 'DUEL TO THE DEATH ⚔️'].map(v => {
+              const isSelected = selectedVibe === v
+
+              return (<button key={v} type="button" onClick={() => setSelectedVibe(v)}
+                  className={`py-2.5 rounded-lg text-xs border transition-all active:scale-95 ${
+                    isSelected
+                      ? 'border-red-500 text-white'
+                      : 'border-[#333] text-gray-400 hover:border-red-500 hover:text-white'
+                  }`}
+                  style={{
+                    background: isSelected ? '#3a1111' : '#1a1a1a',
+                  }}
+                >
+                  {v}
+                </button>
+              )})}
           </div>
         </div>
       </div>
@@ -128,12 +143,12 @@ export default function ArchNemesis() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <p className="text-gray-500 text-xs uppercase tracking-widest">Your Rivalry Status</p>
-          <h2 className="text-white text-xl font-bold">Unmatched ⚔️</h2>
+          <h2 className="text-white text-xl font-bold">Unmatched ❌</h2>
         </div>
         <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#333] flex items-center justify-center text-xl">😤</div>
       </div>
       <div className="rounded-2xl p-5 mb-4" style={{ background: '#1a0000', border: '1px solid #330000' }}>
-        <p className="text-red-400 text-xs uppercase tracking-widest mb-2">Nemesis Score</p>
+        <p className="text-red-400 text-xs uppercase tracking-widest mb-2">Nemesis Incompatibility Score</p>
         <p className="text-6xl font-bold text-white mb-1">--</p>
         <p className="text-gray-600 text-xs">Complete the questionnaire to find your nemesis</p>
       </div>
@@ -142,19 +157,6 @@ export default function ArchNemesis() {
           <div key={i} className="rounded-xl p-3 text-center" style={{ background: '#1a1a1a' }}>
             <p className="text-white font-bold text-lg">{v}</p>
             <p className="text-gray-600 text-xs">{['Rivals', 'Battles', 'Wins'][i]}</p>
-          </div>
-        ))}
-      </div>
-      <div className="mb-4 rounded-xl p-4" style={{ background: '#111', border: '1px solid #222' }}>
-        <p className="text-gray-400 text-xs mb-3">Recent Rivals in Area</p>
-        {RIVALS.map((r, i) => (
-          <div key={i} className="flex items-center gap-3 mb-3">
-            <span className="text-2xl">{r.avatar}</span>
-            <div className="flex-1">
-              <p className="text-white text-xs font-bold">{r.name}</p>
-              <p className="text-gray-600 text-xs">Compatibility score: {r.score} (very low)</p>
-            </div>
-            <div className="text-red-500 text-xs font-bold">{r.score}</div>
           </div>
         ))}
       </div>
@@ -237,19 +239,9 @@ export default function ArchNemesis() {
           ))}
         </div>
       </div>
-      <div className="mb-4 rounded-xl p-4" style={{ background: '#111' }}>
-        <p className="text-gray-500 text-xs mb-3 uppercase tracking-widest">Others who matched against you</p>
-        {RIVALS.map((r, i) => (
-          <div key={i} className="flex items-center gap-3 mb-2">
-            <span className="text-xl">{r.avatar}</span>
-            <p className="text-white text-xs flex-1">{r.name}</p>
-            <span className="text-red-400 text-xs font-bold">{r.score} pts</span>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2 gap-2">
+      
+      <div className="gap-2">
         <button className="py-3 rounded-xl text-xs font-bold text-white active:scale-95" style={{ background: '#ff3333' }}>Challenge Nemesis</button>
-        <button onClick={() => next('home')} className="py-3 rounded-xl text-xs font-bold text-gray-400 border border-[#333] active:scale-95">View Profile</button>
       </div>
     </div>
   )
