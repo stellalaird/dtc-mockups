@@ -13,16 +13,16 @@ import Nudger from './mockups/Nudger.jsx'
 import TraitCollector from './mockups/TraitCollector.jsx'
 
 const APPS = [
-  { id: 'feedback', label: '⭐ Feedback Page', component: FeedbackPage },
-  { id: 'nemesis', label: '⚔️ Arch-Nemesis Finder', component: ArchNemesis },
-  { id: 'teacher', label: '🎓 Teacher & Learner Match', component: TeacherLearner },
-  { id: 'artwork', label: '🎨 Half Artwork', component: HalfArtwork },
-  { id: 'riddles', label: '🔍 Common Interest Riddles', component: CommonInterestRiddles },
-  { id: 'life', label: '🔄 Life Exchange', component: LifeExchange },
-  { id: 'thermo', label: '🌡️ Socialization Thermometer', component: SocializationThermometer },
-  { id: 'study', label: '📚 Study Buddy Finder', component: StudyBuddy },
-  { id: 'nudger', label: '👋 Nudger', component: Nudger },
-  { id: 'traits', label: '🏆 Trait Collector', component: TraitCollector },
+  { id: 'feedback', label: 'Home', component: FeedbackPage },
+  { id: 'nemesis', label: '1. Arch-Nemesis Finder ⚔️', component: ArchNemesis },
+  { id: 'teacher', label: '2. Teacher & Learner Match 🎓', component: TeacherLearner },
+  { id: 'artwork', label: '3. Half Artwork 🎨', component: HalfArtwork },
+  { id: 'riddles', label: '4. Common Interest Riddles 🔍', component: CommonInterestRiddles },
+  { id: 'life', label: '5. Life Exchange 🔄', component: LifeExchange },
+  { id: 'thermo', label: '6. Socialization Thermometer 🌡️', component: SocializationThermometer },
+  { id: 'study', label: '7. Study Buddy Finder 📚', component: StudyBuddy },
+  { id: 'nudger', label: '8. Nudger 👋', component: Nudger },
+  { id: 'traits', label: '9. Trait Collector 🏆', component: TraitCollector },
 ]
 
 export default function App() {
@@ -34,14 +34,6 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#0a0a0a] select-none overflow-hidden">
-      <div className="mb-4 text-center">
-        <p className="text-[#4E2A84] text-xs font-mono uppercase tracking-[0.3em] mb-1">
-          Northwestern University
-        </p>
-        <h1 className="text-white text-lg font-bold tracking-wide">
-          Social Concepts Prototype Gallery
-        </h1>
-      </div>
 
       <div className="relative mb-5 z-50">
         <button
@@ -91,7 +83,7 @@ export default function App() {
         }}
       >
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 z-50"
+          className="absolute top-0 left-1/2 -translate-x-1/2 z-10"
           style={{
             width: '120px',
             height: '34px',
@@ -143,9 +135,6 @@ export default function App() {
         </div>
       </div>
 
-      <p className="text-[#444] text-xs mt-4 tracking-wide">
-        Tap to interact · Scroll inside the phone
-      </p>
     </div>
   )
 }
