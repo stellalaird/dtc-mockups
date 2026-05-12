@@ -13,9 +13,9 @@ const FRIENDS = [
 const ACTIVITIES = ['🧋 Boba run', '🍕 Dinner', '🌊 Lakefill walk', '🏋️ Gym sesh', '☕ Coffee', '🎮 Game?', '📖 Study break', '🌙 Late night snack']
 
 const NOTIFS = [
-  { from: 'Emma Liu', msg: 'nudged you 👋', sub: 'She\'s free at Norris right now!', time: '2 min ago', avatar: '👩🏻‍🦱' },
-  { from: 'Marcus Bell', msg: 'is now free', sub: 'At Fran\'s — might be down to hang', time: '5 min ago', avatar: '🧑🏻' },
-  { from: 'Tyler Banks', msg: 'sent an activity', sub: '"Boba run? Anyone down?"', time: '12 min ago', avatar: '🧑🏾' },
+  { from: 'Emma Liu', msg: 'nudged you 👋', sub: 'lunch at sarge', time: '2 min ago', avatar: '👩🏻‍🦱' },
+  { from: 'Marcus Bell', msg: 'nudged you 👋', sub: 'pickleball', time: '5 min ago', avatar: '🧑🏻' },
+  { from: 'Tyler Banks', msg: 'nudged you 👋', sub: '"lunch at norris"', time: '12 min ago', avatar: '🧑🏾' },
 ]
 
 export default function Nudger() {
@@ -25,6 +25,7 @@ export default function Nudger() {
   const [nudged, setNudged] = useState({})
   const [actSent, setActSent] = useState(null)
   const [addFriend, setAddFriend] = useState(false)
+  const [activityText, setActivityText] = useState('')
 
   const BG = '#0f0f13'
   const GREEN = '#22c55e'
@@ -168,18 +169,33 @@ export default function Nudger() {
       {tab === 'activities' && (
         <div className="px-4 py-4">
           <p className="text-xs uppercase tracking-widest mb-3" style={{ color: '#444' }}>Suggest something</p>
-          <div className="grid grid-cols-2 gap-2 mb-5">
-            {ACTIVITIES.map(a => (
-              <button key={a} onClick={() => setActSent(a)}
-                className="p-3 rounded-2xl text-sm font-bold text-left transition-all active:scale-95"
-                style={{ background: actSent === a ? 'rgba(168,85,247,0.2)' : '#1a1a20', color: actSent === a ? PURPLE : 'white', border: `1px solid ${actSent === a ? PURPLE : '#2a2a32'}` }}>
-                {a}
-              </button>
-            ))}
+          <div className="mb-5">
+            <textarea
+              value={activityText}
+              onChange={(e) => setActivityText(e.target.value)}
+              placeholder="Grab something to eat?"
+              className="w-full h-28 p-4 rounded-2xl text-sm resize-none outline-none"
+              style={{
+                background: '#1a1a20',
+                color: 'white',
+                border: '1px solid #2a2a32',
+              }}
+            />
+            <button
+              onClick={() => setActSent(activityText)}
+              disabled={!activityText.trim()}
+              className="w-full mt-3 py-3 rounded-2xl text-sm font-bold transition-all active:scale-95"
+              style={{
+                background: activityText.trim() ? PURPLE : '#2a2a32',
+                color: activityText.trim() ? 'white' : '#666',
+              }}
+            >
+              Update Nudge ⚡
+            </button>
           </div>
           {actSent && (
             <div className="rounded-2xl p-4 animate-fade-in" style={{ background: 'rgba(168,85,247,0.15)', border: `1px solid ${PURPLE}40` }}>
-              <p className="text-white text-sm font-bold">{actSent} sent to free friends!</p>
+              <p className="text-white text-sm font-bold">{actSent} added to nudge!</p>
               <p className="text-xs mt-1" style={{ color: PURPLE }}>Emma, Tyler, and Marcus were notified.</p>
             </div>
           )}
