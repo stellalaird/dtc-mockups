@@ -35,6 +35,8 @@ export default function App() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#0a0a0a] select-none overflow-hidden">
 
+      <div className="h-6" />
+
       <div className="relative mb-5 z-50">
         <button
           type="button"
