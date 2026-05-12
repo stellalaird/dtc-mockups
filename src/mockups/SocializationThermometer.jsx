@@ -21,7 +21,8 @@ export default function SocializationThermometer() {
     return () => clearInterval(iv)
   }, [running])
 
-  const todayMinutes = Math.floor(seconds / 60)
+  const [todayMinutes, setTodayMinutes] = useState(0)
+  const [pendingMinutes, setPendingMinutes] = useState(null)
   const pct = Math.min(100, Math.round((todayMinutes / (target * 60)) * 100))
   const fillHeight = pct
 
@@ -134,26 +135,46 @@ export default function SocializationThermometer() {
                 <p className="text-xs" style={{ color: '#999' }}>≈ {target * 60} minutes</p>
               </div>
               <div className="mb-4">
-                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#999' }}>
+                <p
+                  className="text-xs uppercase tracking-widest mb-2"
+                  style={{ color: '#999' }}
+                >
                   Add Social Time
                 </p>
 
-                <div className="grid grid-cols-2 gap-2">
-                  {[15, 30, 60].map(mins => (
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  {[15, 30, 60, 120].map(mins => (
                     <button
                       key={mins}
-                      onClick={() => setTodayMinutes(m => m + mins)}
+                      onClick={() => setPendingMinutes(mins)}
                       className="py-3 rounded-xl text-sm font-bold active:scale-95 transition-all"
                       style={{
-                        background: '#e8f5e9',
+                        background: pendingMinutes === mins ? '#c8e6c9' : '#e8f5e9',
                         color: '#1b5e20',
-                        border: '1px solid #a5d6a7',
+                        border: pendingMinutes === mins
+                          ? '2px solid #4caf50'
+                          : '1px solid #a5d6a7',
                       }}
                     >
                       +{mins}m
                     </button>
                   ))}
                 </div>
+
+                {pendingMinutes && (
+                  <button
+                    onClick={() => {
+                      setTodayMinutes(m => m + pendingMinutes)
+                      setPendingMinutes(null)
+                    }}
+                    className="w-full py-3 rounded-xl text-sm font-bold text-white active:scale-95 transition-all"
+                    style={{
+                      background: '#2e7d32',
+                    }}
+                  >
+                    Confirm +{pendingMinutes} minutes 🌿
+                  </button>
+                )}
               </div>
             </div>
           </div>
