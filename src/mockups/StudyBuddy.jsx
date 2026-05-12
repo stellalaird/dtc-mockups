@@ -34,7 +34,7 @@ export default function StudyBuddy() {
     <div className="min-h-full flex flex-col px-6 pt-4 pb-8" style={{ background: BG, fontFamily: 'DM Sans, sans-serif' }}>
       <div className="mb-8">
         <div className="text-5xl mb-4">📚</div>
-        <h2 className="text-2xl font-bold mb-1" style={{ color: DARK }}>StudyBuddy Match</h2>
+        <h2 className="text-2xl font-bold mb-1" style={{ color: DARK }}>StudyBuddy Finder</h2>
         <p className="text-sm" style={{ color: '#a07850' }}>Find someone studying the same thing, right now.</p>
       </div>
       <div className="space-y-3 flex-1">
@@ -46,7 +46,7 @@ export default function StudyBuddy() {
           </div>
         ))}
         <div className="rounded-xl p-3" style={{ background: '#fff3e8', border: '1px solid #f5d5b0' }}>
-          <p className="text-xs" style={{ color: ACCENT }}>💡 StudyBuddy checks your location only while active. Auto-hidden when you leave.</p>
+          <p className="text-xs" style={{ color: ACCENT }}>💡 StudyBuddy checks your location while active.</p>
         </div>
       </div>
       <button onClick={() => setStage('building')} className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95" style={{ background: ACCENT }}>

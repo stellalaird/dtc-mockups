@@ -38,12 +38,11 @@ export default function Nudger() {
   if (stage === 'signup') return (
     <div className="min-h-full flex flex-col px-6 pt-4 pb-8" style={{ background: BG, fontFamily: 'DM Sans, sans-serif' }}>
       <div className="mb-8">
-        <div className="text-5xl mb-4 animate-float">👋</div>
-        <h2 className="text-2xl font-bold text-white mb-2">Nudger</h2>
-        <p style={{ color: '#555', fontSize: '13px' }}>Tell your friends when you're free. Nudge them to hang.</p>
+        <h2 className="text-2xl font-bold text-white mb-2">Nudger!</h2>
+        <p style={{ color: '#555', fontSize: '13px' }}>Nudge your friends when you're free to hang.</p>
       </div>
       <div className="space-y-3 flex-1">
-        {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name'], ['Instagram', '@yourhandle']].map(([l, p]) => (
+        {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name'], ['Phone', '+1(___)___-____']].map(([l, p]) => (
           <div key={l}>
             <label className="text-xs uppercase tracking-widest block mb-1" style={{ color: '#444' }}>{l}</label>
             <input className="w-full px-4 py-3 rounded-2xl text-sm border outline-none" placeholder={p}
@@ -122,10 +121,14 @@ export default function Nudger() {
                   <p className="text-xs truncate" style={{ color: '#555' }}>{f.activity} · {f.dist}</p>
                 </div>
                 {f.status === 'free' && (
-                  <button onClick={() => handleNudge(f.name)}
+                <button onClick={() => myStatus === 'free' && handleNudge(f.name)}
                     className="px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
                     style={{ background: nudged[f.name] ? '#1a2a1a' : 'rgba(34,197,94,0.15)', color: nudged[f.name] ? GREEN : GREEN, border: `1px solid ${GREEN}30` }}>
-                    {nudged[f.name] ? '✓ Sent!' : '👋 Nudge'}
+                    {myStatus !== 'free'
+                      ? '🔒 You are busy'
+                      : nudged[f.name]
+                        ? '✓ Sent!'
+                        : '👋 Nudge'}
                   </button>
                 )}
               </div>
@@ -136,7 +139,20 @@ export default function Nudger() {
             <div className="mt-4 p-4 rounded-2xl" style={{ background: '#1a1a20', border: '1px solid #2a2a32' }}>
               <p className="text-white text-sm font-bold mb-2">Add Friend</p>
               <input className="w-full px-3 py-2 rounded-xl text-sm mb-2 outline-none" placeholder="Search by name or @instagram"
-                style={{ background: '#2a2a32', color: 'white' }} />
+                style={{
+                  background:
+                    myStatus === 'free'
+                      ? nudged[f.name]
+                        ? '#1a2a1a'
+                        : 'rgba(34,197,94,0.15)'
+                      : '#222',
+                  color: myStatus === 'free' ? GREEN : '#555',
+                  border: `1px solid ${
+                    myStatus === 'free' ? `${GREEN}30` : '#333'
+                  }`,
+                  opacity: myStatus === 'free' ? 1 : 0.5,
+                  cursor: myStatus === 'free' ? 'pointer' : 'not-allowed',
+                }} />
               <div className="flex gap-2">
                 <button onClick={() => setAddFriend(false)} className="flex-1 py-2 rounded-xl text-xs font-bold" style={{ background: GREEN, color: 'black' }}>Add</button>
                 <button onClick={() => setAddFriend(false)} className="flex-1 py-2 rounded-xl text-xs font-bold border" style={{ borderColor: '#2a2a32', color: '#555' }}>Cancel</button>
