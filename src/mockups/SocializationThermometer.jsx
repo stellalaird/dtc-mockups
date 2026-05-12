@@ -94,7 +94,7 @@ export default function SocializationThermometer() {
         <div className="px-5 py-5">
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-3 mb-5">
-            {[['Today', `${todayMinutes}m`, '🕐'], ['Streak', '7 days', '🔥'], ['Weekly', '9.2h', '📊']].map(([l, v, e]) => (
+            {[['Today', `${todayMinutes}m`, '🕐'], ['Streak', '3 days', '🔥'], ['Weekly', '9.2h', '📊']].map(([l, v, e]) => (
               <div key={l} className="rounded-xl p-3 text-center" style={{ background: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
                 <p className="text-lg">{e}</p>
                 <p className="font-bold text-sm" style={{ color: '#1b5e20' }}>{v}</p>

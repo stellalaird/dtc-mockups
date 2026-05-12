@@ -112,7 +112,7 @@ export default function ArchNemesis() {
         <div>
           <label className="text-gray-500 text-xs uppercase tracking-widest block mb-2">Your vibe (pick one)</label>
           <div className="grid grid-cols-2 gap-2">
-            {['Civilized chat 🦋', 'DUEL ⚔️'].map(v => {
+            {['Civilized chat 🦋', 'DUEL TO THE DEATH ⚔️'].map(v => {
               const isSelected = selectedVibe === v
 
               return (<button key={v} type="button" onClick={() => setSelectedVibe(v)}
@@ -216,7 +216,7 @@ export default function ArchNemesis() {
     <div className="min-h-full px-5 pt-4 pb-8" style={{ background: '#0d0d0d', fontFamily: 'Space Mono, monospace' }}>
       <div className="text-center mb-5">
         <p className="text-red-500 text-xs uppercase tracking-widest font-bold mb-1 animate-fade-in">⚔️ Nemesis Revealed</p>
-        <h2 className="text-white text-2xl font-bold animate-fade-in delay-100">Your worst match</h2>
+        <h2 className="text-white text-2xl font-bold animate-fade-in delay-100">Your worst enemy</h2>
       </div>
       <div className="rounded-2xl p-5 mb-4 animate-fade-in delay-200" style={{ background: '#1a0000', border: '2px solid #ff3333', boxShadow: '0 0 30px rgba(255,51,51,0.2)' }}>
         <div className="flex items-center gap-4 mb-4">
