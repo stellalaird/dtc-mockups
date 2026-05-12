@@ -87,7 +87,7 @@ export default function CommonInterestRiddles() {
         <div className="h-6" />
         <div className="text-5xl mb-4">🔍</div>
         <h2 className="text-2xl font-bold mb-2" style={{ color: DARK }}>Riddle NU</h2>
-        <p className="text-sm" style={{ color: '#888' }}>Solve clues only Northwestern students would know. Unlock profiles. Make friends.</p>
+        <p className="text-sm" style={{ color: '#888' }}>Solve clues only Northwestern students would know. Unlock profiles. Make friends</p>
       </div>
       <div className="space-y-3 flex-1">
         {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name']].map(([l, p]) => (

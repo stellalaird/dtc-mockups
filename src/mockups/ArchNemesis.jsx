@@ -239,6 +239,8 @@ export default function ArchNemesis() {
         </div>
       </div>
       
+      <div className="h-6" />
+
       <div className="flex justify-center">
         <button
           className="group flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 active:scale-95 hover:scale-[1.02] shadow-lg"
@@ -253,7 +255,7 @@ export default function ArchNemesis() {
           </span>
         </button>
       </div>
-      
+
     </div>
   )
 }

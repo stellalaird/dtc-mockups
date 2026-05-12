@@ -7,22 +7,20 @@ const MATCH = {
   dorm: 'Allison Hall',
   avatar: '🧑🏻‍🎭',
   schedule: [
-    { time: '8:00 AM', act: 'Morning yoga at SPAC' },
     { time: '10:00 AM', act: 'Theater rehearsal' },
-    { time: '1:00 PM', act: 'Lunch at Norris' },
+    { time: '1:00 PM', act: 'Lunch at Norris w/ my friends' },
     { time: '3:00 PM', act: 'Improv club at Wirtz' },
-    { time: '7:00 PM', act: 'Dinner with roommates' },
-    { time: '9:00 PM', act: 'Journal writing' },
+    { time: '7:00 PM', act: 'Dinner w/ my roommates' },
   ],
   tags: ['Spontaneous', 'Artsy', 'Morning Person', 'Social'],
 }
 
 const MY_SCHEDULE = [
-  { time: '10:00 AM', act: 'CS lecture at Tech' },
-  { time: '12:30 PM', act: 'Lunch at Sargent' },
-  { time: '2:00 PM', act: 'Problem sets at library' },
-  { time: '6:00 PM', act: 'Gym at SPAC' },
-  { time: '8:00 PM', act: 'Netflix + takeout' },
+  { time: '10:00 AM', act: 'Architecture lecture at Tech' },
+  { time: '12:30 PM', act: 'Lunch at Sarge w/ my friends' },
+  { time: '2:00 PM', act: 'Beach volleyball at North beach' },
+  { time: '9:00 PM', act: 'IMLeague soccer w/ my team' },
+  { time: '10:00 PM', act: 'Watch the Summer I Turned Pretty' },
 ]
 
 export default function LifeExchange() {
@@ -46,12 +44,12 @@ export default function LifeExchange() {
   if (stage === 'signup') return (
     <div className="min-h-full flex flex-col px-6 pt-4 pb-8" style={{ background: BG, fontFamily: 'DM Sans, sans-serif' }}>
       <div className="mb-8">
-        <div className="text-5xl mb-4 animate-float">🔄</div>
+        <div className="text-5xl mb-4 animate-float">🎲</div>
         <h2 className="text-2xl font-bold text-white mb-2">Life Exchange</h2>
-        <p style={{ color: '#888', fontSize: '13px' }}>Live someone else's day. Share yours. Discover what you're missing.</p>
+        <p style={{ color: '#888', fontSize: '13px' }}>Live someone else's day. They live yours.</p>
       </div>
       <div className="space-y-3 flex-1">
-        {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name'], ['Phone (optional)', '+1 (---) --- ----']].map(([l, p]) => (
+        {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name'], ['Phone', '+1 (---) --- ----']].map(([l, p]) => (
           <div key={l}>
             <label className="text-xs font-bold uppercase tracking-widest block mb-1" style={{ color: '#555' }}>{l}</label>
             <input className="w-full px-4 py-3 rounded-xl text-sm border outline-none transition-all focus:border-amber-500"
@@ -76,7 +74,7 @@ export default function LifeExchange() {
             {[
               { p: 'random', emoji: '🎲', title: 'Random', desc: 'Surprise me with anyone' },
               { p: 'affinity', emoji: '🧲', title: 'Personality Affinity', desc: 'Similar vibe, different routines' },
-              { p: 'friends', emoji: '👥', title: 'Friends of Friends', desc: 'Someone in your extended network' },
+              { p: 'friends', emoji: '👥', title: 'Friends of Friends', desc: 'Someone in my extended network' },
             ].map(({ p, emoji, title, desc }) => (
               <button key={p} onClick={() => setPref(p)}
                 className="w-full flex items-center gap-3 p-4 rounded-xl border transition-all active:scale-95"
@@ -140,11 +138,11 @@ export default function LifeExchange() {
         <div className="grid grid-cols-2">
           <div className="p-3 text-center" style={{ background: 'rgba(245,166,35,0.1)', borderRight: '1px solid #2a2d34' }}>
             <p className="text-xs font-bold" style={{ color: ACCENT }}>Jordan's Day</p>
-            <p className="text-xs" style={{ color: '#555' }}>You'll live this</p>
+            <p className="text-xs" style={{ color: '#555' }}>You'll go to these as Jordan</p>
           </div>
           <div className="p-3 text-center" style={{ background: 'rgba(79,156,249,0.1)' }}>
             <p className="text-xs font-bold" style={{ color: BLUE }}>Your Day</p>
-            <p className="text-xs" style={{ color: '#555' }}>Jordan will live this</p>
+            <p className="text-xs" style={{ color: '#555' }}>Jordan will go to these as you</p>
           </div>
         </div>
         <div className="grid grid-cols-2">

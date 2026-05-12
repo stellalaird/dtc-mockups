@@ -36,23 +36,24 @@ export default function SocializationThermometer() {
 
   if (stage === 'onboarding') return (
     <div className="min-h-full flex flex-col px-6 pt-4 pb-8" style={{ background: 'linear-gradient(160deg, #e8f5e9, #f0f4f8)', fontFamily: 'Nunito, sans-serif' }}>
+      <div className="h-6" />
       <div className="text-center mb-8">
         <div className="text-6xl mb-4 animate-float">🌡️</div>
         <h2 className="text-2xl font-bold mb-2" style={{ color: '#1b5e20', fontFamily: 'Nunito, sans-serif' }}>Social Wellness</h2>
-        <p className="text-sm" style={{ color: '#4caf50' }}>Track your daily social time like a fitness goal.</p>
+        <p className="text-sm" style={{ color: '#4caf50' }}>Track your daily social time and keep a streak.</p>
       </div>
       <div className="mb-6">
         <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: '#888' }}>Daily Social Goal</p>
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm" style={{ color: '#2e7d32' }}>30 min</span>
           <span className="text-2xl font-bold" style={{ color: '#1b5e20' }}>{target}h / day</span>
-          <span className="text-sm" style={{ color: '#2e7d32' }}>4 hrs</span>
+          <span className="text-sm" style={{ color: '#2e7d32' }}>8 hrs</span>
         </div>
-        <input type="range" min="0.5" max="4" step="0.5" value={target} onChange={e => setTarget(Number(e.target.value))}
+        <input type="range" min="0.5" max="8" step="0.5" value={target} onChange={e => setTarget(Number(e.target.value))}
           className="w-full accent-green-600" />
         <div className="mt-3 rounded-xl p-3" style={{ background: 'rgba(76,175,80,0.12)', border: '1px solid rgba(76,175,80,0.3)' }}>
           <p className="text-xs" style={{ color: '#2e7d32' }}>
-            🧠 Research shows {target}h of social interaction per day is associated with higher wellbeing and academic performance.
+            Research shows {target}h of social interaction per day is associated with higher wellbeing and academic performance.
           </p>
         </div>
       </div>
@@ -133,27 +134,31 @@ export default function SocializationThermometer() {
                 <p className="text-xs" style={{ color: '#999' }}>≈ {target * 60} minutes</p>
               </div>
               <div className="mb-4">
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: '#999' }}>Session Timer</p>
-                <p className="text-3xl font-bold" style={{ color: '#1b5e20', fontFamily: 'Space Mono, monospace' }}>{fmt(seconds)}</p>
+                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#999' }}>
+                  Add Social Time
+                </p>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {[15, 30, 60].map(mins => (
+                    <button
+                      key={mins}
+                      onClick={() => setTodayMinutes(m => m + mins)}
+                      className="py-3 rounded-xl text-sm font-bold active:scale-95 transition-all"
+                      style={{
+                        background: '#e8f5e9',
+                        color: '#1b5e20',
+                        border: '1px solid #a5d6a7',
+                      }}
+                    >
+                      +{mins}m
+                    </button>
+                  ))}
+                </div>
               </div>
-              <button
-                onClick={() => setRunning(r => !r)}
-                className="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white active:scale-95 transition-all"
-                style={{ background: running ? '#e55' : '#2e7d32' }}>
-                {running ? <><Square size={14}/> Stop</> : <><Play size={14}/> Start</>}
-              </button>
             </div>
           </div>
 
-          {/* Activity suggestions */}
-          <div className="rounded-2xl p-4" style={{ background: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#999' }}>Suggestions</p>
-            <div className="flex flex-wrap gap-2">
-              {["☕ Fran's coffee", '🏊 SPAC swim', '🌲 Lakefill walk', '🍕 Elder dinner', '📚 Library study group'].map(a => (
-                <span key={a} className="text-xs px-3 py-1.5 rounded-full" style={{ background: '#e8f5e9', color: '#2e7d32' }}>{a}</span>
-              ))}
-            </div>
-          </div>
+          
         </div>
       )}
 
