@@ -68,9 +68,6 @@ export default function TraitCollector() {
         >
           TRAIT COLLECTOR
         </h2>
-        <p style={{ color: '#555', fontSize: '12px', letterSpacing: '0.15em' }}>
-          NOTICE · TRACK · REMEMBER
-        </p>
       </div>
 
       <div
@@ -78,8 +75,7 @@ export default function TraitCollector() {
         style={{ background: 'rgba(255,215,0,0.05)', border: '1px solid rgba(255,215,0,0.15)' }}
       >
         <p style={{ color: GOLD, fontSize: '12px', lineHeight: '1.6' }}>
-          Collect people with unique traits. The rarer the person, the more points you earn.
-          Top the leaderboard. 🏆
+          Find people with unique traits! Fill your trait collections.
         </p>
       </div>
 
@@ -163,8 +159,8 @@ export default function TraitCollector() {
             className="rounded-2xl p-4 mb-4"
             style={{ background: '#111', border: '1px solid #1a1a1a' }}
           >
-            <p className="text-xs uppercase tracking-widest mb-3" style={{ color: '#444' }}>
-              Add something you learned about someone
+            <p className="text-xs tracking-widest mb-3" style={{ color: '#444' }}>
+              Add a trait to your collection
             </p>
 
             <div className="grid grid-cols-3 gap-2 mb-4">
@@ -246,6 +242,18 @@ export default function TraitCollector() {
           <p className="text-xs uppercase tracking-widest mb-3" style={{ color: '#333' }}>
             Your Collections
           </p>
+
+          <button
+            className="w-full mb-4 py-3 rounded-2xl text-sm font-bold transition-all active:scale-95 flex items-center justify-center gap-2"
+            style={{
+              background: 'rgba(255,215,0,0.08)',
+              border: '1px solid rgba(255,215,0,0.18)',
+              color: GOLD,
+            }}
+          >
+            <Plus size={16} />
+            Create new collection
+          </button>
 
           <div className="space-y-4">
             {collections.map(c => (
