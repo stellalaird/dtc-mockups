@@ -62,7 +62,7 @@ export default function ArchNemesis() {
           <span className="text-red-500 text-xs tracking-widest uppercase font-bold">ARCH-NEMESIS FINDER</span>
         </div>
         <h2 className="text-white text-2xl font-bold leading-tight">Find your<br/><span style={{ color: '#ff3333' }}>opp.</span></h2>
-        <p className="text-gray-500 text-xs mt-2">The person you will hate till the day you die.</p>
+        <p className="text-gray-500 text-xs mt-2">This is the person you must hate till the day you die.</p>
       </div>
       <div className="space-y-3 flex-1">
         <div>
@@ -112,7 +112,7 @@ export default function ArchNemesis() {
         <div>
           <label className="text-gray-500 text-xs uppercase tracking-widest block mb-2">Your vibe (pick one)</label>
           <div className="grid grid-cols-2 gap-2">
-            {['Civilized chat 🦋', 'DUEL TO THE DEATH ⚔️'].map(v => {
+            {['Civilized chat 🦋', 'DUEL ⚔️'].map(v => {
               const isSelected = selectedVibe === v
 
               return (<button key={v} type="button" onClick={() => setSelectedVibe(v)}

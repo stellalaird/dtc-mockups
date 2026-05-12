@@ -3,15 +3,15 @@ import { ArrowLeft, Upload, Users, Check, Sparkles } from 'lucide-react'
 
 const ARTWORKS = [
   { id: 1, title: 'Urban Dreamscape', parts: 3, size: 4, progress: 2, emoji: '🌆' },
-  { id: 2, title: 'Abstract Feelings', parts: 2, size: 2, progress: 1, emoji: '🎭' },
-  { id: 3, title: 'Nature Fragments', parts: 4, size: 4, progress: 3, emoji: '🌿' },
+  { id: 2, title: 'Abstract Feelings', parts: 1, size: 2, progress: 1, emoji: '🎭' },
+  { id: 3, title: 'Nature Fragments', parts: 0, size: 4, progress: 3, emoji: '🌿' },
 ]
 
 const COLLABS = [
-  { name: 'Zara Williams', avatar: '👩🏾‍🎨', section: 'Top-left', done: true },
+  { name: 'Zara Larsson', avatar: '👩🏾‍🎨', section: 'Top-left', done: true },
   { name: 'You', avatar: '🧑‍🎨', section: 'Top-right', done: false },
-  { name: 'Owen Larsen', avatar: '👨🏼‍🎨', section: 'Bottom-left', done: true },
-  { name: 'Mei Chen', avatar: '👩🏻‍🎨', section: 'Bottom-right', done: true },
+  { name: 'Drake', avatar: '👨🏼‍🎨', section: 'Bottom-left', done: true },
+  { name: 'Bob Ross', avatar: '👩🏻‍🎨', section: 'Bottom-right', done: true },
 ]
 
 export default function HalfArtwork() {
@@ -31,7 +31,7 @@ export default function HalfArtwork() {
         <div className="text-5xl mb-4 animate-float">🎨</div>
         <h2 className="text-3xl font-bold text-white mb-2" style={{ letterSpacing: '0.05em' }}>HALF</h2>
         <div className="w-16 h-0.5 mx-auto mb-3" style={{ background: 'linear-gradient(90deg, #ff6bff, #6baaff)' }} />
-        <p style={{ color: '#a87fff', fontSize: '13px' }}>Collaborative art chains · Northwestern</p>
+        <p style={{ color: '#a87fff', fontSize: '13px' }}>Collaborative art chains</p>
       </div>
       <div className="space-y-3 flex-1">
         {[['Email', 'you@u.northwestern.edu'], ['Name', 'Your artist name']].map(([l, p]) => (
@@ -42,7 +42,7 @@ export default function HalfArtwork() {
           </div>
         ))}
         <div className="rounded-xl p-4" style={{ background: 'rgba(255,107,255,0.08)', border: '1px solid rgba(255,107,255,0.2)' }}>
-          <p style={{ color: '#ff9eff', fontSize: '12px' }}>✨ Create one section of an artwork. See the full piece only when everyone's done.</p>
+          <p style={{ color: '#ff9eff', fontSize: '12px' }}>✨ Create one section of an artwork. See the full piece once everyone's done.</p>
         </div>
       </div>
       <button onClick={() => setStage('role')} className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 active:scale-95"
@@ -84,7 +84,7 @@ export default function HalfArtwork() {
           <button key={n} onClick={() => setGroupSize(n)}
             className="aspect-square rounded-2xl flex flex-col items-center justify-center transition-all active:scale-95"
             style={{ background: groupSize === n ? 'rgba(168,127,255,0.2)' : 'rgba(255,255,255,0.04)', border: `2px solid ${groupSize === n ? '#a87fff' : 'rgba(255,255,255,0.1)'}` }}>
-            <span className="text-3xl">{['', '👥', '👥👤', '👥👥'][n]}</span>
+            <span className="text-3xl">{['', '', '👥', '👥👤', '👥👥'][n]}</span>
             <span className="text-white font-bold mt-2">{n} Artists</span>
             <span className="text-xs mt-1" style={{ color: '#6b5a9e' }}>{n} sections</span>
           </button>
@@ -121,7 +121,7 @@ export default function HalfArtwork() {
                 <div key={i} className="h-2 flex-1 rounded-full" style={{ background: i < a.parts ? 'linear-gradient(90deg,#ff6bff,#6baaff)' : 'rgba(255,255,255,0.1)' }} />
               ))}
             </div>
-            <p className="text-xs mt-2" style={{ color: i => i < a.parts ? '#a87fff' : '#444' }}>
+            <p className="text-xs mt-2" style={{ color: i => i < a.parts ? '#a87fff' : '#fffdfd' }}>
               {a.size - a.parts} section{a.size - a.parts !== 1 ? 's' : ''} remaining — be the next contributor
             </p>
           </button>
@@ -194,10 +194,10 @@ export default function HalfArtwork() {
       <div className="w-full rounded-3xl overflow-hidden mb-5 animate-fade-in delay-200" style={{ border: '2px solid rgba(168,127,255,0.4)', boxShadow: '0 0 50px rgba(168,127,255,0.3)' }}>
         <div className="grid grid-cols-2" style={{ height: '240px' }}>
           {[
-            { bg: 'linear-gradient(135deg, #ff6bff55, #7c3aed)', emoji: '🌆', label: 'Zara' },
+            { bg: 'linear-gradient(135deg, #ff6bff55, #7c3aed)', emoji: '🌆', label: 'Zara Larsson' },
             { bg: 'linear-gradient(135deg, #6baaff55, #0891b2)', emoji: '🌊', label: 'You' },
-            { bg: 'linear-gradient(135deg, #ffb36b55, #d97706)', emoji: '🌿', label: 'Owen' },
-            { bg: 'linear-gradient(135deg, #ff6b9d55, #db2777)', emoji: '⭐', label: 'Mei' },
+            { bg: 'linear-gradient(135deg, #ffb36b55, #d97706)', emoji: '🌿', label: 'Drake' },
+            { bg: 'linear-gradient(135deg, #ff6b9d55, #db2777)', emoji: '⭐', label: 'Bob Ross' },
           ].map((s, i) => (
             <div key={i} className="flex items-center justify-center relative" style={{ background: s.bg }}>
               <span className="text-5xl">{s.emoji}</span>

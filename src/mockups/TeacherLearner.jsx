@@ -50,7 +50,7 @@ export default function TeacherLearner() {
       <p className="text-sm mb-8" style={{ color: '#a07040' }}>You can always switch later.</p>
       <div className="space-y-4 flex-1">
         {[
-          { r: 'teach', emoji: '🎓', title: 'I want to teach', desc: 'Share a skill you\'re passionate about (not implemented yet 😔)' },
+          { r: 'teach', emoji: '🎓', title: 'I want to teach', desc: 'NOT BUILT YET 😔' },
           { r: 'learn', emoji: '📖', title: 'I want to learn', desc: 'Find someone who can teach you something new' },
           { r: 'both', emoji: '🔄', title: 'Both!', desc: 'Teach one thing, learn another' },
         ].map(({ r, emoji, title, desc }) => (
