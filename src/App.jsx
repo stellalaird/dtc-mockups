@@ -17,7 +17,7 @@ const APPS = [
   { id: 'nemesis', label: '1. Arch-Nemesis Finder ⚔️', component: ArchNemesis },
   { id: 'teacher', label: '2. Teacher & Learner Match 🎓', component: TeacherLearner },
   { id: 'artwork', label: '3. Half Artwork 🎨', component: HalfArtwork },
-  { id: 'riddles', label: '4. Common Interest Riddles 🔍', component: CommonInterestRiddles },
+  { id: 'riddles', label: '4. Riddle Challenges 🔍', component: CommonInterestRiddles },
   { id: 'life', label: '5. Life Exchange 🔄', component: LifeExchange },
   { id: 'thermo', label: '6. Socialization Thermometer 🌡️', component: SocializationThermometer },
   { id: 'study', label: '7. Study Buddy Finder 📚', component: StudyBuddy },
