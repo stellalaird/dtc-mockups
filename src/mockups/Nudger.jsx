@@ -108,7 +108,11 @@ export default function Nudger() {
             {FRIENDS.filter(f => f.status === 'free').length} friends free now
           </p>
           <div className="space-y-2">
-            {FRIENDS.map((f, i) => (
+            {FRIENDS.map((friend, originalIndex) => ({ ...friend, originalIndex })).sort((a, b) => {
+                if (a.status === 'free' && b.status === 'busy') return -1
+                if (a.status === 'busy' && b.status === 'free') return 1
+                return a.originalIndex - b.originalIndex
+              }).map((f, i) => (
               <div key={i} className="flex items-center gap-3 p-3 rounded-2xl" style={{ background: '#1a1a20' }}>
                 <div className="relative">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style={{ background: '#2a2a32' }}>{f.avatar}</div>
