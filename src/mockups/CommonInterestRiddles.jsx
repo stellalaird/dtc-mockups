@@ -83,8 +83,8 @@ export default function CommonInterestRiddles() {
       <div className="text-center mb-8">
         <div className="h-6" />
         <div className="text-5xl mb-4">🔍</div>
-        <h2 className="text-2xl font-bold mb-2" style={{ color: DARK }}>Riddle the Riddler</h2>
-        <p className="text-sm" style={{ color: '#888' }}>Solve clues. Unlock profiles. Make friends.</p>
+        <h2 className="text-2xl font-bold mb-2" style={{ color: DARK }}>Riddle NU</h2>
+        <p className="text-sm" style={{ color: '#888' }}>Solve clues only Northwestern students would know. Unlock profiles. Make friends</p>
       </div>
       <div className="space-y-3 flex-1">
         {[['NU Email', 'you@u.northwestern.edu'], ['Name', 'Your name']].map(([l, p]) => (
@@ -109,7 +109,7 @@ export default function CommonInterestRiddles() {
       <div className="space-y-4 flex-1">
         {[
           { m: 'solve', emoji: '🔓', title: 'Solve Riddles', desc: 'Decode clues from nearby students and unlock their profiles' },
-          { m: 'create', emoji: '✍️', title: 'Create a Riddle', desc: 'Write clues about something only NU people would know. Let others unlock your profile' },
+          { m: 'create', emoji: '✍️', title: 'Create a Riddle', desc: 'Write clues about something only NU students would know. Let others unlock your profile' },
         ].map(({ m, emoji, title, desc }) => (
           <button key={m} onClick={() => { setMode(m); setStage(m === 'solve' ? 'map' : 'create') }}
             className="w-full text-left p-5 rounded-2xl border-2 active:scale-95 transition-all"
@@ -120,11 +120,14 @@ export default function CommonInterestRiddles() {
           </button>
         ))}
       </div>
+      <div className="h-4" />
+      <p className="text-sm mb-8" style={{ color: '#888' }}>A place in evanston... A campus crush... A secret club... Yourself...</p>
     </div>
   )
 
   if (stage === 'map') return (
     <div className="min-h-full px-5 pt-4 pb-8" style={{ background: BG, fontFamily: 'Syne, sans-serif' }}>
+      <button onClick={() => setStage('mode')} className="flex items-center gap-1 text-sm mb-5" style={{ color: '#999' }}><ArrowLeft size={14}/></button>
       <h2 className="text-xl font-bold mb-1" style={{ color: DARK }}>Nearby Riddles</h2>
       <p className="text-xs mb-4" style={{ color: '#888' }}>3 students near you are waiting to have their riddles solved</p>
       {/* Fake map */}
@@ -200,7 +203,7 @@ export default function CommonInterestRiddles() {
               <div className="flex gap-2">
                 <input className={`flex-1 px-4 py-3 rounded-xl text-sm border outline-none transition-all ${guessWrong ? 'border-red-400 bg-red-50' : ''}`}
                   style={{ borderColor: guessWrong ? undefined : '#e0d8d0', color: DARK }}
-                  placeholder="Who do you think this is?" value={guess} onChange={e => setGuess(e.target.value)} />
+                  placeholder="What do you think this is?" value={guess} onChange={e => setGuess(e.target.value)} />
                 <button onClick={handleGuess} className="px-4 py-3 rounded-xl text-sm font-bold text-white active:scale-95" style={{ background: DARK }}>
                   <Eye size={16} />
                 </button>
@@ -248,7 +251,7 @@ export default function CommonInterestRiddles() {
             <label className="text-xs font-bold uppercase tracking-widest block mb-1" style={{ color: '#aaa' }}>Clue {i+1} {i === 0 ? '(vaguest)' : i === 3 ? '(most specific)' : ''}</label>
             <input className="w-full px-4 py-3 rounded-xl text-sm border outline-none" value={c}
               onChange={e => { const nc = [...createdClues]; nc[i] = e.target.value; setCreatedClues(nc) }}
-              placeholder={['Something mysterious about you...', 'A hobby or passion...', 'A specific habit or place...', 'Almost gives you away...'][i]}
+              placeholder={['What type of thing is this...', 'Something about that thing...', 'Something else about that thing...', 'A NU student would instantly know...'][i]}
               style={{ background: 'white', borderColor: '#e0d8d0', color: DARK }} />
           </div>
         ))}
