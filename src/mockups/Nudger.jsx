@@ -32,7 +32,6 @@ export default function Nudger() {
 
   const handleNudge = (name) => {
     setNudged(n => ({ ...n, [name]: true }))
-    setTimeout(() => setNudged(n => { const x = {...n}; delete x[name]; return x }), 3000)
   }
 
   if (stage === 'signup') return (
@@ -109,7 +108,7 @@ export default function Nudger() {
             {FRIENDS.filter(f => f.status === 'free').length} friends free now
           </p>
           <div className="space-y-2">
-            {FRIENDS.sort((a,b) => a.status === 'free' ? -1 : 1).map((f, i) => (
+            {FRIENDS.map((f, i) => (
               <div key={i} className="flex items-center gap-3 p-3 rounded-2xl" style={{ background: '#1a1a20' }}>
                 <div className="relative">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style={{ background: '#2a2a32' }}>{f.avatar}</div>
