@@ -137,8 +137,6 @@ export default function App() {
         </div>
       </div>
 
-      <div className="h-6" />
-
     </div>
   )
 }

@@ -92,7 +92,7 @@ export default function ArchNemesis() {
         className="w-full py-4 rounded-xl text-sm font-bold text-white mt-6 transition-all active:scale-95"
         style={{ background: '#ff3333' }}
       >
-        ENTER THE ARENA →
+        NEXT →
       </button>
     </div>
   )
