@@ -3,9 +3,9 @@ import { Play, Square, Bell, Calendar, Flame, Target } from 'lucide-react'
 
 const NOTIFS = [
   { icon: '🌡️', msg: "You've only socialized 20 mins today. Time to move!", time: '2h ago' },
-  { icon: '☕', msg: "Go invite someone to Fran's — it's a good day for it.", time: '4h ago' },
-  { icon: '🔥', msg: "3-day streak! Keep it going.", time: 'Yesterday' },
-  { icon: '🏊', msg: "Your friend Emma is free at Plex. Send a nudge?", time: 'Yesterday' },
+  { icon: '☕', msg: "Invite someone for lunch!", time: '4h ago' },
+  { icon: '🔥', msg: "2-day streak! Keep it going.", time: 'Yesterday' },
+  { icon: '🏊', msg: "Text a friend?", time: 'Yesterday' },
 ]
 
 export default function SocializationThermometer() {
@@ -187,7 +187,7 @@ export default function SocializationThermometer() {
         <div className="px-5 py-5">
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#999' }}>Past 7 Days</p>
           <div className="space-y-3 mb-5">
-            {[['Mon', 2.5, 2], ['Tue', 1.8, 2], ['Wed', 3.1, 2], ['Thu', 0.5, 2], ['Fri', 2.2, 2], ['Sat', 4.0, 2], ['Sun', 1.1, 2]].map(([d, hrs, tgt]) => (
+            {[['Mon', target + 1.5, 2], ['Tue', target - 0.2, 2], ['Wed', target + 0.3, 2], ['Thu', 0.2, 2], ['Fri', target, 2], ['Sat', target + 2, 2], ['Sun', target + 0.6, 2]].map(([d, hrs, tgt]) => (
               <div key={d} className="flex items-center gap-3">
                 <span className="text-xs w-8" style={{ color: '#999' }}>{d}</span>
                 <div className="flex-1 h-5 rounded-full overflow-hidden" style={{ background: '#e8f5e9' }}>
@@ -199,7 +199,7 @@ export default function SocializationThermometer() {
           </div>
           <div className="rounded-2xl p-4" style={{ background: 'white' }}>
             <Flame size={20} color="#ff9800" className="mb-2" />
-            <p className="font-bold" style={{ color: '#1b5e20' }}>7-day streak! 🎉</p>
+            <p className="font-bold" style={{ color: '#1b5e20' }}>3-day streak! 🎉</p>
             <p className="text-xs" style={{ color: '#999' }}>You've hit your goal 5 of 7 days this week.</p>
           </div>
         </div>
